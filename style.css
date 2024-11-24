@@ -1,0 +1,314 @@
+/* Genel Stil */
+body, html {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    height: 100%;
+    background-color: #f9f9f9;
+    background-image: url('backgroundColor.png');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    box-sizing: border-box; /* Box modelını düzgün kullanabilmek için */
+}
+
+/* Navbar Genel Stil */
+.sticky-menu {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #333;
+    padding: 10px 20px;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+}
+
+.sticky-menu .nav-list {
+    display: flex;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+.sticky-menu .nav-list li {
+    margin: 0 15px;
+}
+
+.sticky-menu .nav-list a {
+    color: white;
+    text-decoration: none;
+    font-size: 18px;
+    padding: 15px 30px;
+    border: 2px solid transparent;
+    box-sizing: border-box;
+    transition: background-color 0.3s ease, border-color 0.3s ease;
+}
+
+.sticky-menu .nav-list a:hover {
+    background-color: #555;
+    border-color: #fff;
+}
+
+/* Mobil Menü */
+.menu-toggle {
+    display: none;
+    flex-direction: column;
+    cursor: pointer;
+}
+
+.menu-toggle .bar {
+    background-color: white;
+    height: 3px;
+    width: 25px;
+    margin: 3px 0;
+    border-radius: 5px;
+}
+
+/* Sayfa Başlığı ve Menüsü */
+header {
+    background-color: #333;
+    padding: 10px 0;
+}
+
+.sticky-menu {
+    display: flex;
+    justify-content: center;
+    position: sticky;
+    top: 0;
+    background-color: #333;
+    z-index: 1000;
+    width: 100%;
+}
+
+.sticky-menu a {
+    color: white;
+    margin: 0 30px;
+    text-decoration: none;
+    padding: 15px 30px;
+    font-size: 18px;
+}
+
+.sticky-menu a:hover {
+    background-color: #555;
+}
+
+/* Sayfanın İçeriği */
+.main-content {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    width: 100%;
+    min-height: 100vh;
+    padding: 0 20px;
+}
+
+/* Form Alanı */
+.form-section {
+    padding: 40px;
+    max-width: 600px;
+    width: 100%;
+    background: rgba(255, 255, 255, 0.8);
+    border-radius: 10px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    position: relative;
+    z-index: 1;
+    max-height: 90vh;
+    overflow-y: auto;
+}
+
+/* Form İçeriği */
+form label {
+    display: block;
+    margin: 10px 0 5px;
+}
+
+form input, form select, form button {
+    width: 100%;
+    padding: 12px;
+    margin-bottom: 20px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 16px;
+}
+
+/* Buton */
+form button {
+    background-color: #333;
+    color: white;
+    cursor: pointer;
+    font-size: 18px;
+    border: none;
+}
+
+form button:hover {
+    background-color: #555;
+}
+
+/* Zaman dilimi seçimi */
+form select {
+    background-color: #f9f9f9;
+    border: 1px solid #ccc;
+    padding: 12px;
+    font-size: 16px;
+    border-radius: 5px;
+}
+
+form select:focus {
+    outline: none;
+    border-color: #333;
+}
+
+/* Yapışkan Reklam */
+.ad.sticky {
+    position: fixed;
+    right: 10px;
+    top: 50px;
+    width: 200px;
+    background: white;
+    border: 1px solid #ccc;
+    text-align: center;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    z-index: 2000;
+}
+
+.ad img {
+    width: 100%;
+}
+
+#close-ad {
+    position: absolute;
+    top: 5px;
+    right: 5px;
+    background: red;
+    color: white;
+    border: none;
+    border-radius: 50%;
+    cursor: pointer;
+}
+
+/* Popup Stil */
+.popup {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0, 0, 0, 0.7);
+    justify-content: center;
+    align-items: center;
+    z-index: 1001;
+}
+
+.popup-content {
+    background: white;
+    padding: 20px;
+    border-radius: 10px;
+    text-align: center;
+    max-width: 500px;
+    width: 80%;
+}
+
+.close-btn {
+    position: absolute;
+    top: 5px;
+    right: 5px;
+    cursor: pointer;
+    font-size: 20px;
+}
+
+#terms-link {
+    text-decoration: underline;
+    cursor: pointer;
+}
+
+form label input[type="checkbox"] {
+    margin: 0;
+    padding: 0;
+    margin-right: 10px;
+}
+
+/* Checkbox ve metnin alt alta ve sol hizalanması */
+form label {
+    display: block;
+    margin-left: 20px;
+    margin-top: 10px;
+}
+
+form label span {
+    display: block;
+    margin-top: 5px;
+}
+
+/* Mobil Cihazlar için stil */
+@media (max-width: 768px) {
+    .menu-toggle {
+        display: flex;
+    }
+
+    .nav-list {
+        display: none;
+        flex-direction: column;
+        width: 100%;
+        position: absolute;
+        top: 60px;
+        left: 0;
+        background-color: #333;
+        padding: 20px 0;
+    }
+
+    .nav-list.active {
+        display: flex;
+    }
+
+    .nav-list li {
+        margin: 10px 0;
+    }
+
+    .nav-list a {
+        padding: 15px;
+    }
+
+    .sticky-menu a {
+        padding: 10px;
+        font-size: 14px;
+    }
+
+    .form-section {
+        padding: 20px;
+    }
+
+    form input, form select, form button {
+        font-size: 14px;
+        padding: 10px;
+    }
+
+    .ad.sticky {
+        top: auto;
+        bottom: 10px;
+        width: 100px;
+    }
+}
+
+/* Küçük Ekranlar için stil */
+@media (max-width: 480px) {
+    .sticky-menu {
+        flex-direction: column;
+    }
+
+    .sticky-menu a {
+        margin: 5px 0;
+    }
+
+    .form-section {
+        padding: 10px;
+    }
+
+    form input, form select, form button {
+        font-size: 12px;
+        padding: 8px;
+    }
+}

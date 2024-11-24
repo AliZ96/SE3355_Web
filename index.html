@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Education Appointment Form</title>
+  <link rel="stylesheet" href="style.css">
+  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-5019502854629387" crossorigin="anonymous"></script>
+</head>
+
+<body>
+  <ins class="adsbygoogle"
+       style="display:block"
+       data-ad-client="ca-pub-5019502854629387"
+       data-ad-slot="4199608262"
+       data-ad-format="auto"
+       data-full-width-responsive="true"></ins>
+  <script>
+       (adsbygoogle = window.adsbygoogle || []).push({});
+  </script>
+
+  <header>
+    <nav class="sticky-menu">
+      <div class="menu-toggle" id="mobile-menu">
+        <span class="bar"></span>
+        <span class="bar"></span>
+        <span class="bar"></span>
+      </div>
+      <ul class="nav-list">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="categories.html">Categories</a></li>
+        <li><a href="about.html">About</a></li>
+        <li><a href="contact.html">Contact</a></li>
+      </ul>
+    </nav>
+  </header>
+  
+  <main class="main-content">
+    <section class="form-section">
+      <h1>Education Appointment Form</h1>
+      <form id="appointment-form" action="submitted.html" method="get">
+        <label for="name">Ad Soyad:</label>
+        <input type="text" id="name" name="name" required>
+
+        <label for="email">E-Posta:</label>
+        <input type="email" id="email" name="email" required>
+
+        <label for="phone">Telefon:</label>
+        <input type="tel" id="phone" name="phone" placeholder="+90 5xx xxx xx xx" required>
+
+        <label for="city">Şehir:</label>
+        <select id="city" name="city"></select>
+
+        <label for="course">Tür:</label>
+        <select id="course" name="course"></select>
+
+        <label for="contact-method">Nasıl İletişim Kurulsun?</label>
+        <select id="contact-method" name="contact-method" required>
+          <option value="phone">Telefonla</option>
+          <option value="sms">SMS ile</option>
+        </select>
+
+        <label for="time-slot">Tercih Edilen Zaman:</label>
+        <select id="time-slot" name="time-slot" required>
+          <option value="morning">Sabah (8:00 - 12:00)</option>
+          <option value="afternoon">Öğlen (12:00 - 16:00)</option>
+          <option value="evening">Akşam (16:00 - 20:00)</option>
+        </select>
+
+        <label>
+          <input type="checkbox" id="terms" required> 
+          <span id="terms-link">Şartları kabul ediyorum.</span>
+        </label>
+
+        <button type="submit">Gönder</button>
+      </form>
+    </section>
+  </main>
+
+  <div class="ad sticky">
+    <a href="https://www.nike.com/tr/" target="_blank"><img src="download.jpeg" alt="Ad"></a>
+    <button id="close-ad">X</button>
+  </div>
+
+  <div id="terms-popup" class="popup">
+    <div class="popup-content">
+      <span id="close-popup" class="close-btn">&times;</span>
+      <h2>Şartlar ve Koşullar</h2>
+      <p>Burada şartlar ve koşullar yer alır...</p>
+      <button id="accept-terms">Kabul Ediyorum</button>
+    </div>
+  </div>
+
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      fetch('https://run.mocky.io/v3/ff0b7d02-c62c-473f-b49e-52bc31110944')
+        .then(response => response.json())
+        .then(data => {
+          const citySelect = document.getElementById('city');
+          const courseSelect = document.getElementById('course');
+          data.cities.forEach(city => {
+            let option = document.createElement('option');
+            option.value = city;
+            option.textContent = city;
+            citySelect.appendChild(option);
+          });
+          data.courses.forEach(course => {
+            let option = document.createElement('option');
+            option.value = course;
+            option.textContent = course;
+            courseSelect.appendChild(option);
+          });
+        });
+
+      const phoneInput = document.getElementById('phone');
+      phoneInput.addEventListener('input', (e) => {
+        const phonePattern = /^\+90\s5\d{2}\s\d{3}\s\d{2}\s\d{2}$/;
+        if (!phonePattern.test(e.target.value)) {
+          e.target.style.borderColor = 'red';
+        } else {
+          e.target.style.borderColor = '';
+        }
+      });
+
+      document.getElementById('close-ad').addEventListener('click', () => {
+        const adElement = document.querySelector('.ad');
+        adElement.style.transition = 'opacity 0.5s';
+        adElement.style.opacity = '0';
+        setTimeout(() => {
+          adElement.style.display = 'none';
+        }, 500);
+      });
+
+      // Mobil Menü Açma / Kapatma
+      const mobileMenu = document.getElementById('mobile-menu');
+      const navList = document.querySelector('.nav-list');
+
+      mobileMenu.addEventListener('click', () => {
+        navList.classList.toggle('active');
+      });
+
+      const termsLink = document.getElementById('terms-link');
+      const popup = document.getElementById('terms-popup');
+      const closePopup = document.getElementById('close-popup');
+      const acceptTerms = document.getElementById('accept-terms');
+      termsLink.addEventListener('click', () => popup.style.display = 'block');
+      closePopup.addEventListener('click', () => popup.style.display = 'none');
+      acceptTerms.addEventListener('click', () => {
+        document.getElementById('terms').checked = true;
+        popup.style.display = 'none';
+      });
+    });
+  </script>
+</body>
+</html>
